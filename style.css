@@ -1,0 +1,87 @@
+body {
+  font-family: Georgia, Times, Times New Roman, serif;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 18px;
+  padding-left: 20%;
+  padding-right: 50px;
+  color: #111;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 5em;
+  margin-bottom: 2em;
+}
+
+blockquote {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+header {
+  padding: 40% 0;
+}
+
+#TOC {
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  background: #fafafa;
+  max-width: 15%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+#TOC::-webkit-scrollbar {
+  width: 8px;
+}
+
+#TOC::-webkit-scrollbar-track {
+  background-color: #ececec;
+}
+
+#TOC::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 8px;
+}
+
+#TOC > ul {
+  padding-right: 10px;
+}
+
+#TOC ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+#TOC ul li a {
+  text-decoration: none;
+  color: #364149;
+  display: block;
+}
+
+#TOC ul li a:hover {
+  color: #008cff;
+}
+
+figure {
+  text-align: center;
+}
+
+figure p {
+  text-align: center;
+  font-style: italic;
+}
+
+figure img {
+  width: 100%;
+}
