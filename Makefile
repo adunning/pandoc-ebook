@@ -6,7 +6,7 @@ BOOKNAME = ebook
 
 # Default targets
 
-all: html epub
+all: html epub docx
 
 # `make help` displays all lines beginning with two hash signs
 
@@ -49,8 +49,7 @@ pdf:
 	-V papersize=a5 \
 	--top-level-division=part \
 	--pdf-engine=lualatex \
-	--table-of-contents \
-	--standalone
+	--table-of-contents
 
 ## docx : Generate a Word file.
 
@@ -58,8 +57,7 @@ docx:
 	pandoc $(BOOKNAME).md \
 	-o $(BOOKNAME).docx \
 	--reference-doc=style.docx \
-	--table-of-contents \
-	--standalone
+	--table-of-contents
 
 # Actions that do not correspond to files
 
