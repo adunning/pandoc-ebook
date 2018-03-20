@@ -1,6 +1,6 @@
 # pandoc-ebook
 
-A sample script for joint print/HTML/EPUB production using [Pandoc](https://pandoc.org). Created for [The Future of the Book](https://github.com/adunning/future-of-the-book) course in the [University of Toronto Faculty of Information](https://ischool.utoronto.ca).
+A sample script for joint HTML/EPUB/DOCX/PDF production from a single Markdown source file using [Pandoc](https://pandoc.org). Created for [The Future of the Book](https://github.com/adunning/future-of-the-book) course in the [University of Toronto Faculty of Information](https://ischool.utoronto.ca).
 
 ## Usage
 
