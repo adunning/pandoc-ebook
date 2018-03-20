@@ -1,17 +1,21 @@
+## Create e-books in multiple formats
+
+# Variables
+
 BOOKNAME = ebook
+
+# Default targets
 
 all: html epub
 
-help:
-	@echo ' '
-	@echo 'E-book Generator'
-	@echo ' '
-	@echo 'Usage:'
-	@echo '   make html                        generate an HTML file'
-	@echo '   make epub                        generate an EPUB file'
-	@echo '   make pdf                         generate a PDF file'
-	@echo '   make docx                        generate a Word file'
+# `make help` displays all lines beginning with two hash signs
 
+help : Makefile
+	@sed -n 's/^##//p' $<
+
+# Build targets
+
+## html : Generate an HTML file.
 
 html:
 	pandoc $(BOOKNAME).md \
@@ -22,6 +26,8 @@ html:
 	--section-divs \
 	--standalone
 
+## epub : Generate an EPUB file.
+
 epub:
 	pandoc $(BOOKNAME).md \
 	-t epub \
@@ -29,6 +35,8 @@ epub:
 	--epub-cover-image="images/cover.jpg" \
 	--css="style-epub.css" \
 	--standalone
+
+## pdf  : Generate a PDF file.
 
 pdf:
 	pandoc $(BOOKNAME).md \
@@ -44,6 +52,8 @@ pdf:
 	--table-of-contents \
 	--standalone
 
+## docx : Generate a Word file.
+
 docx:
 	pandoc $(BOOKNAME).md \
 	-o $(BOOKNAME).docx \
@@ -51,5 +61,6 @@ docx:
 	--table-of-contents \
 	--standalone
 
+# Actions that do not correspond to files
 
-.PHONY: help pdf docx html epub
+.PHONY: help
