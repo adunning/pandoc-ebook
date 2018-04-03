@@ -29,3 +29,8 @@ brew cask install mactex
 ```
 
 You can also generate e-books in Kindle format by [combinining Pandoc with KindleGen](https://puppet.com/blog/how-we-automated-our-ebook-builds-pandoc-and-kindlegen). To install with [Homebrew Cask](https://caskroom.github.io), run `brew cask install kindlegen`.
+
+# Contributors
+
+- [Andrew Dunning](https://andrewdunning.ca/)
+- [Andy Berdan](http://berdan.ca/)
