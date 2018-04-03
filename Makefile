@@ -6,7 +6,13 @@ BOOKNAME = ebook
 
 # Default targets
 
-all: html epub docx
+## all   : Generate all supported document types (updated files only)
+
+all: html epub pdf docx
+
+## clean : Delete all generated files
+
+clean: html_clean epub_clean pdf_clean docx_clean
 
 # `make help` displays all lines beginning with two hash signs
 
@@ -15,9 +21,14 @@ help : Makefile
 
 # Build targets
 
-## html : Generate an HTML file.
+## html  : Generate an HTML file.
 
-html:
+html: $(BOOKNAME).html
+
+html_clean:
+	rm -f $(BOOKNAME).html
+
+$(BOOKNAME).html: $(BOOKNAME).md style.css
 	pandoc $(BOOKNAME).md \
 	-t html \
 	-o $(BOOKNAME).html \
@@ -26,9 +37,14 @@ html:
 	--section-divs \
 	--standalone
 
-## epub : Generate an EPUB file.
+## epub  : Generate an EPUB file.
 
-epub:
+epub: $(BOOKNAME).epub
+
+epub_clean:
+	rm -f $(BOOKNAME).epub
+
+$(BOOKNAME).epub: $(BOOKNAME).md images/cover.jpg style-epub.css
 	pandoc $(BOOKNAME).md \
 	-t epub \
 	-o $(BOOKNAME).epub \
@@ -36,9 +52,14 @@ epub:
 	--css="style-epub.css" \
 	--standalone
 
-## pdf  : Generate a PDF file.
+## pdf   : Generate a PDF file.
 
-pdf:
+pdf: $(BOOKNAME).pdf
+
+pdf_clean:
+	rm -f $(BOOKNAME).pdf
+
+$(BOOKNAME).pdf: $(BOOKNAME).md 
 	pandoc $(BOOKNAME).md \
 	-o $(BOOKNAME).pdf \
 	-V documentclass=scrbook \
@@ -51,9 +72,14 @@ pdf:
 	--pdf-engine=lualatex \
 	--table-of-contents
 
-## docx : Generate a Word file.
+## docx  : Generate a Word file.
 
-docx:
+docx: $(BOOKNAME).docx
+
+docx_clean:
+	rm -f $(BOOKNAME).docx
+
+$(BOOKNAME).docx: $(BOOKNAME).md style.docx
 	pandoc $(BOOKNAME).md \
 	-o $(BOOKNAME).docx \
 	--reference-doc=style.docx \
@@ -61,4 +87,4 @@ docx:
 
 # Actions that do not correspond to files
 
-.PHONY: help
+.PHONY: help html pdf docx epub html_clean pdf_clean docx_clean epub_clean
